@@ -1,0 +1,22 @@
+## The code was written by Orsan Kilicer 7/3/2020 (July)
+
+## Code explanation: This is a direct calculation. 
+## Maybe we can use Gaussian formula to obtain summation, but this is OK.
+
+import time
+
+start = time.time()
+
+def calculate_the_difference(n):
+    sum_of_the_squares = 0
+    square_of_the_sums = 0
+    for i in range(n):
+        sum_of_the_squares += (i+1)**2
+        square_of_the_sums += i+1
+    square_of_the_sums *= square_of_the_sums
+    result = square_of_the_sums - sum_of_the_squares
+    return result
+
+print(calculate_the_difference(100))
+
+print ("it took", time.time() - start, "seconds.")
