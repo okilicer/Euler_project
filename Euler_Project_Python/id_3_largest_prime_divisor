@@ -1,0 +1,24 @@
+## The code was written by Orsan Kilicer 7/3/2020 (July)
+
+## Code explanation: Since we don't need to store the all prime numbers 
+## that divide the number, we can divide it to the smallest prime number 
+## and we can move to the point that we can obtain the largest prime divisor.
+
+import time
+
+start = time.time()
+
+def largest_prime_divisor(n):
+    j = 2
+    while j < n:
+        if n % j == 0:
+            n /= j
+            j = 2
+        else:
+            j += 1 
+    return int(n)
+
+
+print(largest_prime_divisor(600851475143))
+
+print ("it took", time.time() - start, "seconds.")
