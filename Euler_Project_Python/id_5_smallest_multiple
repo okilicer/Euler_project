@@ -1,0 +1,28 @@
+# Explanation of the code: For the first loop, I found the prime numbers within that interval.
+# Then, for the second loop, I found the lcm. Example: If I want to find the power of 2 inside 
+# the interval for [1,5], then lets check the multiplictions: 1 x 2 x 3 x 2 * 2 x 5. 
+# Now, as we can see, we have  2 * 2, it means that for the multiplication result, we have 4.
+# So, the lcm will be 1 x 3 x 4 x 5.
+
+import time
+
+start = time.time()
+
+def smallest_multiple(smallest_number):
+    numbers = list(range(2, smallest_number + 1))   #we create a list for all numbers
+    prime_numbers = numbers.copy() 
+    for j in range(len(prime_numbers)):  # in this for loop, we found the prime numbers
+        i = j + 1
+        while i < len(prime_numbers):
+            if  prime_numbers[i] % prime_numbers[j] == 0:
+                prime_numbers.pop(i)
+            i += 1     
+    result = 1      #initilization of the multiplication result
+    for i in range(len(prime_numbers)):   # now, we will find the least common multiple
+        for j in range(1, len(numbers)):
+            if prime_numbers[i]**j in numbers:
+                result *= prime_numbers[i]            
+    return result 
+
+print(smallest_multiple(20))
+print ("it took", time.time() - start, "seconds.")
