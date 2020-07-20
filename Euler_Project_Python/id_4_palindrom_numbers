@@ -1,0 +1,29 @@
+# I thought that the numbers should lie between 900 and 999. 
+# So, I decided to look at this interval.
+# This is a straightforward calculation, also by starting j from i, 
+# I prevented repeating of the numbers. Then,I sorted the numbers and found the max
+# palindrom number and the numbers that gives the result.
+# Also, there is another way. These palindrom numbers should be divided to 11 
+# (not all palindrom numbers are divided to 11, only the ones that has even number of 
+# digits, i.e., 906609. 
+
+import time
+
+start = time.time()
+
+palindrom_numbers = []
+for i in range(0, 100):
+    for j in range(i, 100):
+            multiplication = (999 - j) * (999 - i)
+            multiplication_str = str(multiplication)
+            if ((multiplication_str[0] == multiplication_str[-1]) and 
+               (multiplication_str[1] == multiplication_str[-2]) and
+               (multiplication_str[2] == multiplication_str[-3])) :
+                palindrom_numbers.append([multiplication, 999 - j, 999 - i])
+palindrom_numbers.sort(reverse = True) 
+
+print("Max palindrom number is {0} and the numbers are given as {1} and {2}. \n"
+      .format(palindrom_numbers[0][0],
+              palindrom_numbers[0][1],
+              palindrom_numbers[0][2]))
+print ("it took", time.time() - start, "seconds.")
