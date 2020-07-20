@@ -5,7 +5,8 @@
 # palindrom number and the numbers that gives the result.
 # Also, there is another way. These palindrom numbers should be divided to 11 
 # (not all palindrom numbers are divided to 11, only the ones that has even number of 
-# digits, i.e., 906609. 
+# digits, i.e., 906609). If you consider this option, you can find the numbers can be divided to
+# 11, and from this point, you can consider this.
 
 import time
 
