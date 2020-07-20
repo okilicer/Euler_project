@@ -1,0 +1,20 @@
+# There is no known formulation to find the prime numbers. 
+# So, smallest_number below is approximated by the Legendre formula
+# number of prime numbers is approximately n/(ln n - 1.08366). 
+# So, I choose the smallest_number to find approximate prime count.
+
+import time
+
+start = time.time()
+
+smallest_number = 110010
+prime_numbers = list(range(2, smallest_number + 1))   #we create a list for all numbers
+for j in range(len(prime_numbers)):  # in this for loop, we found the prime numbers
+    i = j + 1
+    while i < len(prime_numbers):
+        if  prime_numbers[i] % prime_numbers[j] == 0:
+            prime_numbers.pop(i)
+        i += 1  
+prime_numbers[10000]
+
+print ("it took", time.time() - start, "seconds.")
