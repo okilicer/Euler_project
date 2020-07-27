@@ -1,4 +1,5 @@
-# A better prime finding algorithm than previous time. It took nearly 50 seconds, the code 
+# A better prime finding algorithm than previous time. Even though they
+# do not want us the primes, I also save the prime numbers. It took nearly 50 seconds, the code 
 # may be better in the future. Instead of preparing a list and popping out the elements,
 # I added the elements. Also, I used (prime_numbers[counter] > np.sqrt(j)) part
 # to eliminate unnecessary calculations, i.e., Suppose we want to calculate prime numbers
