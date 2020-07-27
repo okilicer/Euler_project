@@ -1,0 +1,33 @@
+# A better prime finding algorithm than previous time. It took nearly 50 seconds, the code 
+# may be better in the future. Instead of preparing a list and popping out the elements,
+# I added the elements. Also, I used (prime_numbers[counter] > np.sqrt(j)) part
+# to eliminate unnecessary calculations, i.e., Suppose we want to calculate prime numbers
+# before 10, and say j = 9. So, should we check 9 % 5 != 0? Not necessary. Since the only number
+# divides 9 is 3. 3 X 3 = 9, namely sqrt(9) = 3.
+# Written by Orsan Kilicer, 7/27/2020 6.24 am, CDT.
+
+
+start2 = time.time()
+def summation_of_primes(smallest_number):
+    prime_numbers = [2, 3]
+    j = 5
+    counter = 1
+    while j < smallest_number:
+        while (counter < len(prime_numbers)):
+            if (j % prime_numbers[counter] != 0):
+                counter += 1 
+                if (counter == len(prime_numbers)) or (prime_numbers[counter] > np.sqrt(j)):
+                    prime_numbers.append(j)
+                    break
+            else:
+                break
+        counter = 1            
+        j += 2
+    prime_sum = 0    
+    for i in prime_numbers:
+        prime_sum += i
+    print(prime_sum)   
+
+summation_of_primes(2 * 10**6)
+
+print ("it took", time.time() - start2, "seconds.")
