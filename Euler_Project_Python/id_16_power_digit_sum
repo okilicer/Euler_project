@@ -1,0 +1,32 @@
+# I convert the number into string then, 
+# I created a list and sum the elements.
+# orsan kilicer 08/05/2020
+
+import time
+
+start = time.time()
+
+def power_digit_sum(number):
+    power_of_two = 1
+    summation = 0
+
+    for i in range(0, number):
+        power_of_two *= 2
+
+    # we convert this number to a string and create an= list
+    str_power_of_two = str(power_of_two) 
+    str_power_of_two_list = []
+
+    # appending the elements to the list
+    for i in str_power_of_two:
+        str_power_of_two_list.append(int(i))
+
+    # sum all the elements
+    for i in str_power_of_two_list:
+        summation += i
+
+    print("The result is {0}".format(summation))
+    
+power_digit_sum(1000)    
+
+print ("it took", time.time() - start, "seconds.")
